@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>어디서놀지</title>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Dongle:wght@300&family=Gugi&display=swap"
+          rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR&display=swap" rel="stylesheet">
+
+    <style>
+
+        .wrap {
+            font-family: 'Gugi', cursive;
+
+            color: white;
+            background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.pexels.com/photos/1252500/pexels-photo-1252500.jpeg');
+            background-size: cover;
+            background-position: top;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            margin: 20px auto auto auto;
+        }
+
+        .wrap > h1 {
+            width: 300px;
+            margin: auto auto 60px auto;
+            padding: 40px 20px 20px 20px
+        }
+
+        .review-btn {
+            font-family: 'IBM Plex Sans KR', sans-serif;
+            width: 200px;
+            height: 50px;
+
+            background-color: transparent;
+            color: white;
+
+            border-radius: 50px;
+            border: 1px solid white;
+
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            margin: 10px auto 10px 510px;
+        }
+
+        .review-btn > button:hover {
+            border: 2px solid black;
+        }
+
+        .container {
+            height: 150px;
+        }
+
+        .search-box {
+            width: 700px;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            margin: 20px auto auto auto;
+
+            font-family: 'IBM Plex Sans KR', sans-serif;
+        }
+
+        .weather-box {
+
+            font-family: 'IBM Plex Sans KR', sans-serif;
+            max-height: 700px;
+            max-width: 1000px;
+            width: 80%;
+
+            box-shadow: gray 0 0 3px 0;
+
+            margin: 20px auto 20px auto;
+
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+
+        }
+
+        .weather {
+            width: 95%;
+            max-width: 300px;
+            max-height: 700px;
+        }
+
+        .card {
+            font-family: 'IBM Plex Sans KR', sans-serif;
+            margin-top: 30px;
+        }
+        /*후기 페이지 css 파일*/
+        /*후기 페이지 css 파일*/
+        /*후기 페이지 css 파일*/
+        .ms-title {
+            font-family: 'IBM Plex Sans KR', sans-serif;
+            color: black;
+            font-weight: 950;
+            text-shadow: -1px 0 darkgray, 0 1px darkgray, 1px 0 darkgray, 0 -1px darkgray;
+        }
+
+        .ms-background {
+            font-family: 'IBM Plex Sans KR', sans-serif;
+            background-image: url("https://images.pexels.com/photos/6896970/pexels-photo-6896970.jpeg");
+            width: 95%;
+            max-width: 1500px;
+            height: 600px;
+
+            background-position: center 50%;
+            background-size: cover;
+
+            color: white;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+            margin: 20px auto 20px auto;
+            margin-right: 100px;
+        }
+
+        .ms-comment {
+            font-family: 'IBM Plex Sans KR', sans-serif;
+            width: 99.9%;
+            max-width: 770px;
+            height: 60px;
+            margin-top: 13px;
+            margin-bottom: 38px;
+        }
+
+        .msk-comment {
+            font-family: 'IBM Plex Sans KR', sans-serif;
+            background: white;
+            width: 95%;
+            max-width: 800px;
+            margin: 20px auto 20px auto;
+
+            box-shadow: 0px 0px 3px 0px black;
+            padding: 20px;
+        }
+
+        .msk-comment > button {
+            width: 130px;
+            height: 40px;
+
+            background-color: transparent;
+            color: black;
+
+            border-radius: 50px;
+            border: 1px solid grey;
+
+            margin: 10px 0px 0px 300px;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .ms-cls {
+            font-family: 'IBM Plex Sans KR', sans-serif;
+            width: 95%;
+            max-width: 2000px;
+            display: none;
+
+            margin-top: 100px;
+        }
+
+        .ms-cardlist {
+            width: 95%;
+            max-width: 1200px;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            margin: 0px auto 0px auto;
+
+        }
+
+        .ms-onoff {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .ms-onoff > button {
+            margin-right: 20px;
+        }
+
+        .ms-hug:hover {
+            text-decoration: underline;
+            text-underline: white;
+            cursor: pointer;
+        }
+        /*후기 페이지 css 파일*/
+        /*후기 페이지 css 파일*/
+        /*후기 페이지 css 파일*/
+        h3:hover {
+            text-decoration: underline;
+            text-underline: white;
+            cursor: pointer;
+        }
+
+    </style>
+
+    <script>
+
+        $(document).ready(function () {
+            listing();
+            main_temp_get()
+        });
+
+        function open_close_local() {
+            if (document.getElementById('toc-local').style.display === 'block') {
+document.getElementById('toc-local').style.display = 'none';
+            } else {
+document.getElementById('toc-local').style.display = 'block';
+            }
+        }
+
+        function open_close_what() {
+            if (document.getElementById('toc-what').style.display === 'block') {
+document.getElementById('toc-what').style.display = 'none';
+            } else {
+document.getElementById('toc-what').style.display = 'block';
+            }
+        }
+
+        function open_close_star() {
+            if (document.getElementById('toc-star').style.display === 'block') {
+document.getElementById('toc-star').style.display = 'none';
+            } else {
+document.getElementById('toc-star').style.display = 'block';
+            }
+        }
+
+        function open_close_comment() {
+            if (document.getElementById('toc-comment').style.display === 'block') {
+document.getElementById('toc-comment').style.display = 'none';
+            } else {
+document.getElementById('toc-comment').style.display = 'block';
+            }
+        }
+
+        function open_box() {
+            $('#ms-id').show()
+window.scroll({ left: 0, top: 900, behavior: "smooth" })
+        }
+
+        function close_box() {
+            $('#ms-id').hide()
+        }
+
+        // #날씨 API 불러오기
+        function main_temp_get() {
+            $("#weather").empty()
+            $.ajax({
+                type: "GET",
+                url: "http://spartacodingclub.shop/sparta_api/weather/seoul",
+                data: {},
+                success: function (response) {
+                    let temp = response['temp']
+                    let image = response['icon']
+                    let cloud = response['clouds']
+
+                    let temp_html = `<div class="card h-100" style="border-color: transparent">
+                                                <img src="${image}"
+                                                     class="card-img-top" alt="...">
+                                                <div class="card-body" id="card-txt">
+                                                    <h5 class="card-title">${temp}도</h5>
+                                                    <p class="card-text">구름 : ${cloud}</p>
+                                                </div>
+                                            </div>`
+                    $('#weather').append(temp_html)
+
+                    let temp_html0 = ``
+               let temp_html1=``
+                    if (0 < temp < 30) {
+                        temp_html1=`<p class="card-text"> 오늘은 밖에서 즐거운 액티비티를 즐기기 딱 좋은 하루네요! 새로운 경험을 해보는 것은 어떤가요?</p>`
+                        temp_html0 = `<div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel" style="max-width: 700px; width: 95%; max-height: 800px">
+                                            <div class="carousel-indicators">
+                                                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
+                                                        aria-current="true" aria-label="추천장소1"></button>
+                                                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
+                                                        aria-label="추천장소2"></button>
+                                                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
+                                                        aria-label="추천장소3"></button>
+                                            </div>
+                                            <div class="carousel-inner">
+                                                <div class="carousel-item active">
+                                                    <img src="https://search.pstatic.net/common/?autoRotate=true&quality=95&type=w750&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20150831_186%2F1441015173592vvta5_JPEG%2F116268483930416_0.jpg"
+                                                         class="d-block w-100" alt="...">
+                                                    <div class="carousel-caption d-none d-md-block">
+                                                        <h5>창덕궁</h5>
+                                                        <p>도심 속에서 조선의 아름다움을 느낄수 있는 아름다운 궁궐</p>
+                                                    </div>
+                                                </div>
+                                                <div class="carousel-item">
+                                                    <img src="https://search.pstatic.net/common/?autoRotate=true&quality=95&type=w750&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20200917_134%2F1600310732598pphQ4_JPEG%2Fxs3wTWhL9SuQDoTsMMqbGWPV.jpg" class="d-block w-100" alt="...">
+                                                    <div class="carousel-caption d-none d-md-block">
+                                                        <h5>남산 케이블카</h5>
+                                                        <p>서울의 오랜 명소 남산, 도시의 전경을 볼 수 있는 케이블카</p>
+                                                    </div>
+                                                </div>
+                                                <div class="carousel-item">
+                                                    <img src="https://search.pstatic.net/common/?autoRotate=true&quality=95&type=w750&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20200705_272%2F15939317480496THYr_JPEG%2FVi_27PQzB0kAxc8YsjgBKdVH.jpg" class="d-block w-100" alt="...">
+                                                    <div class="carousel-caption d-none d-md-block">
+                                                        <h5>아리수 카약</h5>
+                                                        <p>배 하나와 떠나는 여행, 물 위에서 보는 서울은 어떤 모습일까요? </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
+                                                    data-bs-slide="prev">
+                                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                                <span class="visually-hidden">이전</span>
+                                            </button>
+                                            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
+                                                    data-bs-slide="next">
+                                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                                <span class="visually-hidden">다음</span>
+                                            </button>
+                                        </div>`
+                        $('#suggestions').append(temp_html0)
+                        $('#card-txt').append(temp_html1)
+                    } else {
+                        temp_html1=`<p class="card-text"> 오늘은 전시회나 공연을 보기 적절한 날씨군요. 즐거운 예술의 세계로 빠지는 것은 어떤가요?</p>`
+                        temp_html0 = `<div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel" style="max-width: 700px; width: 95%; max-height: 800px">
+                                            <div class="carousel-indicators">
+                                                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
+                                                        aria-current="true" aria-label="추천장소1"></button>
+                                                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
+                                                        aria-label="추천장소2"></button>
+                                                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
+                                                        aria-label="추천장소3"></button>
+                                            </div>
+                                            <div class="carousel-inner">
+                                                <div class="carousel-item active">
+                                                    <img src="https://search.pstatic.net/common/?autoRotate=true&quality=95&type=w750&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20190806_12%2F1565092778393IC4hr_JPEG%2FHD7c0xS9TqvUO3k_isdE_HDn.jpeg.jpg"
+                                                         class="d-block w-100" alt="...">
+                                                    <div class="carousel-caption d-none d-md-block">
+                                                        <h5> 국립 현대 미술관 </h5>
+                                                        <p>현대 예술가들의 독특한 아이디어가 눈앞에 펼쳐진다. 혼자서도 친구와도 연인과도 특별한 시간을 보낼 수 있는 국립현대 미술관 </p>
+                                                    </div>
+                                                </div>
+                                                <div class="carousel-item">
+                                                    <img src="https://search.pstatic.net/common/?autoRotate=true&quality=95&type=w750&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20150901_184%2F14410455912147SBYx_JPEG%2F13491247_0.jpg" class="d-block w-100" alt="...">
+                                                    <div class="carousel-caption d-none d-md-block">
+                                                        <h5>대학로</h5>
+                                                        <p>수많은 창작 연극, 뮤지컬, 공연들이 모여있는 문화의 거리 대학로. 연극과 함께 울고 웃는, 다양한 감정을 느낄수 있는 대학로</p>
+                                                    </div>
+                                                </div>
+                                                <div class="carousel-item">
+                                                    <img src="https://search.pstatic.net/common/?autoRotate=true&quality=95&type=w750&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20201230_110%2F16092939541859y7jH_JPEG%2FAON4QRsVktzDKaaGgRVKxIcZ.JPG.jpg" alt="...">
+                                                    <div class="carousel-caption d-none d-md-block">
+                                                        <h5>인사동 쌈지길</h5>
+                                                        <p>전통이 가득한 인사동에는 많은 미술관과 체험관이 있어요! 한국인들도 모르는 한국의 이야기를 듬뿍 담은 인사동 쌈지길에서 쇼핑과 문화체험을 한번에! </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
+                                                    data-bs-slide="prev">
+                                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                                <span class="visually-hidden">이전</span>
+                                            </button>
+                                            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
+                                                    data-bs-slide="next">
+                                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                                <span class="visually-hidden">다음</span>
+                                            </button>
+                                        </div>`
+                        $('#suggestions').append(temp_html0)
+                        $('#card-txt').append(temp_html1)
+                    }
+                }
+            })
+        }
+        // 후기 페이지 스크립트 파일
+        // 후기 페이지 스크립트 파일
+        // 후기 페이지 스크립트 파일
+
+        function create() {
+            let knickname = $('#ms-nick').val();
+            let kurl = $('#ms-map').val();
+            let karea = $('#ms-area').val();
+            let kimage = $('#ms-image').val();
+            let kplace = $('#ms-place').val();
+            let kstar = $('#ms-star').val();
+            let kcomment = $('#ms-cmt').val();
+
+            $.ajax({
+                type: 'POST',
+                url: '/mskpost',
+                data: {
+                    nickname_give: knickname,
+                    url_give: kurl,
+                    area_give: karea,
+                    image_give: kimage,
+                    place_give: kplace,
+                    star_give: kstar,
+                    comment_give: kcomment
+                },
+                success: function (response) {
+                    alert(response['msg'])
+window.location.reload()
+                }
+            });
+        }
+
+        function listing() {
+            $.ajax({
+                type: 'GET',
+                url: '/mskpost',
+                data: {},
+                success: function (response) {
+                    let rows = response['myposts']
+                    for (let i = 0; i < rows.length; i++) {
+                        let km_nickname = rows[i]['nickname']
+                        let km_url = rows[i]['url']
+                        let km_area = rows[i]['area']
+                        let km_image = rows[i]['image']
+                        let km_place = rows[i]['place']
+                        let km_star = rows[i]['star']
+                        let km_comment = rows[i]['comment']
+
+                        let kstar_image = '⭐'.repeat(km_star)
+
+                        let mstemp_html = ` <div class="card" style="width: 18rem;">
+                                            <img src="${km_image}"
+                                                 class="card-img-top" alt="...">
+                                            <div class="card-body">
+                                                <h5 class="card-title">${km_place}</h5>
+                                                <p class="ms-comment">${km_comment} </p>
+                                            </div>
+                                            <ul class="list-group list-group-flush">
+                                                <li class="list-group-item">${km_area}</li>
+                                                <li class="list-group-item">${km_nickname}</li>
+                                                <li class="list-group-item">${kstar_image}</li>
+                                            </ul>
+                                            <div class="card-body">
+                                                <a target="_blank"
+                                                   href=${km_url}
+                                                   class="card-link">지도로 보기</a>
+                                            </div>
+                                        </div>`
+
+                        $('#ms-cards').append(mstemp_html)
+                    }
+                }
+            })
+        }
+        // 후기 페이지 스크립트 파일
+        // 후기 페이지 스크립트 파일
+        // 후기 페이지 스크립트 파일
+    </script>
+</head>
+<body>
+    <div class="wrap">
+        <h1>어디서놀지</h1>
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <h3 id="toc-toggle" onclick="open_close_local()">지역</h3>
+                    <ol id="toc-local">
+                        <li>서울</li>
+                        <li>경상</li>
+                        <li>그외</li>
+                    </ol>
+                </div>
+                <div class="col">
+                    <h3 onclick="open_close_what()">취미</h3>
+                    <ol id="toc-what">
+                        <li>디저트</li>
+                        <li>뷰</li>
+                        <li>액티비티</li>
+                    </ol>
+                </div>
+                <div class="col">
+                    <h3 onclick="open_close_star()">평점</h3>
+                    <ol id="toc-star">
+                        <li>⭐</li>
+                        <li>⭐⭐</li>
+                        <li>⭐⭐⭐</li>
+                        <li>⭐⭐⭐⭐</li>
+                        <li>⭐⭐⭐⭐⭐</li>
+                    </ol>
+                </div>
+                <div class="col">
+                    <h3 onclick="open_close_comment()">후기</h3>
+                    <ol id="toc-comment">
+                        <li>후기작성&nbsp;&nbsp;<span class="ms-hug" onclick="open_box()">>'CLick'<</span></li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+        <div class="search-box">
+            <div class="input-group mb-3">
+                <span class="input-group-text">search</span>
+                <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
+            </div>
+        </div>
+    </div>
+    <div class="weather-box" id="suggestions">
+        <div class="weather" id="weather">
+        </div>
+    </div>
+    <!--후기페이지 html코드-->
+    <!--후기페이지 html코드-->
+    <!--후기페이지 html코드-->
+    <div class="ms-cls" id="ms-id">
+        <div class="ms-background">
+            <h1 class="ms-title">< 여행 후기 ></h1>
+            <div class="msk-comment">
+                <div class="row -2 row-cols-1 row-cols-md-2 g-4">
+                    <div class="col">
+                        <input id="ms-nick" type="text" class="form-control" placeholder="nick name" aria-label="nick name">
+                    </div>
+                    <div class="col">
+                        <input id="ms-map" type="url" class="form-control" placeholder="지도 url">
+                    </div>
+                    <div class="input-group-md-2 g-4">
+                        <select class="form-select" id="ms-area">
+                            <option selected>지역 선택</option>
+                            <option value="서울">서울</option>
+                            <option value="경상">경상</option>
+                            <option value="그 외">그 외</option>
+                        </select>
+                    </div>
+                    <div class="col">
+                        <input id="ms-image" type="url" class="form-control" placeholder="image">
+                    </div>
+                    <div class="col">
+                        <input id="ms-place" type="text" class="form-control" placeholder="place-name"
+                               aria-label="nick name">
+                    </div>
+                    <div class="input-group-md-2 g-4">
+                        <select class="form-select" id="ms-star">
+                            <option selected>별점 선택</option>
+                            <option value="1">⭐</option>
+                            <option value="2">⭐⭐</option>
+                            <option value="3">⭐⭐⭐</option>
+                            <option value="4">⭐⭐⭐⭐</option>
+                            <option value="5">⭐⭐⭐⭐⭐</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="ms-comment">
+                    <input type="text" class='ms-comment' placeholder="Comment!"
+                           id='ms-cmt'>
+                </div>
+                <div class="ms-onoff">
+                    <button onclick="create()" type="button" class="btn btn-outline-secondary">작성하기</button>
+                    <button onclick="close_box()" type="button" class="btn btn-outline-dark">닫기</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class='ms-cardlist'>
+            <div class="row row-cols-1 row-cols-md-3 g-4" id='ms-cards'>
+                <div class="card" style="width: 18rem;">
+                    <img src="https://ldb-phinf.pstatic.net/20210609_292/1623216519739APfji_JPEG/Magiccastle.jpg"
+                         class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">롯데월드</h5>
+                        <p class="ms-comment">탈 게 많아요! </p>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">서울</li>
+                        <li class="list-group-item">메시</li>
+                        <li class="list-group-item">⭐⭐⭐⭐</li>
+                    </ul>
+                    <div class="card-body">
+                        <a target="_blank"
+                           href='https://www.google.co.kr/maps/place/%EB%A1%AF%EB%8D%B0%EC%9B%94%EB%93%9C/data=!4m9!1m2!2m1!1z66Gv642w7JuU65Oc!3m5!1s0x357ca5a7250efe81:0x433df2c1fec03b98!8m2!3d37.5111158!4d127.098167!15sCgzroa_rjbDsm5Trk5wiA4gBAVoPIg3roa_rjbAg7JuU65OckgEKdGhlbWVfcGFyaw?hl=ko'
+                           class="card-link">지도로 보기</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <!--후기페이지 html코드-->
+    <!--후기페이지 html코드-->
+    <!--후기페이지 html코드-->
+</body>
+</html>
